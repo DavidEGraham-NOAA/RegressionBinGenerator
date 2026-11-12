@@ -17,3 +17,15 @@
 
 1.  Add measure variable. - DONE
 2. Add measure_increment.
+
+# 11/11/26
+1. Import new data to local database
+2. Build queries for basic data understanding and stats - unique spp, presence/absence per spp, depth categories, etc
+3. Test data prep steps
+4. Non-logistic function
+5. Logistic function
+6. Dataframe merge
+7. Final merge
+
+# Needs
+Good known test data with edge cases fully documented.
