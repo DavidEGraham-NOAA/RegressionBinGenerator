@@ -1,0 +1,22 @@
+pr_usvi1323_coral15spp_depregdat_development.xlsx orig_grouped tab query:
+
+--stats_dev local sql server db
+
+WITH base AS
+(SELECT
+    species_cd,
+    pres,
+    CASE WHEN pres = 1 THEN 1 ELSE 0 END AS pres_true,
+    CASE WHEN pres = 0 THEN 1 ELSE 0 END AS pres_false,
+    DEPTH, 
+    FLOOR([depth]) AS depth_bin
+FROM dbo.pr_usvi1323_coral15spp_depregdat
+)
+
+SELECT species_cd,
+    SUM(base.pres_true) AS present,
+    SUM(base.pres_false) AS absent,
+    base.depth_bin
+FROM base
+GROUP BY base.species_cd, base.depth_bin
+ORDER BY base.species_cd, base.depth_bin
